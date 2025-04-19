@@ -1,41 +1,39 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { CartProvider } from './contexts/CartContext';
 import ProtectedRoute from './components/common/ProtectedRoute';
 
-// Import Auth Page
-import Auth from './pages/Auth';
+// Auth Pages
+import Login from './pages/Login';
 
-// Import Layouts
+// Layout Components
 import AdminLayout from './pages/AdminLayout';
 import UserLayout from './pages/UserLayout';
 import NotFound from './pages/NotFound';
 
-// Import Admin Components
+// Admin Components
 import AdminDashboard from './components/admin/Dashboard';
 import UserManagement from './components/admin/UserManagement';
 import BookManagement from './components/admin/BookManagement';
 import OrderManagement from './components/admin/OrderManagement';
 
-// Import User Components
+// User Components
 import UserDashboard from './components/user/Dashboard';
 import Catalog from './components/user/Catalog';
 import Cart from './components/user/Cart';
 import OrderHistory from './components/user/OrderHistory';
 import Profile from './components/user/Profile';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <AuthProvider>
         <CartProvider>
           <Routes>
             {/* Public Routes */}
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/login" element={<Navigate to="/auth" replace />} />
-            <Route path="/" element={<Navigate to="/auth" replace />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Navigate to="/login" replace />} />
             
             {/* Admin Routes */}
             <Route element={<ProtectedRoute requireAdmin />}>
@@ -67,6 +65,6 @@ function App() {
       </AuthProvider>
     </Router>
   );
-}
+};
 
 export default App;

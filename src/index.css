@@ -1,13 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom CSS can go below this line */
+/* For example: */
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-gray-50;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.book-card {
+  @apply rounded-lg overflow-hidden shadow-book transition-transform hover:scale-105;
 }
+
+.book-title {
+  @apply text-lg font-bold text-book-primary;
+}
+
+.book-author {
+  @apply text-sm text-book-secondary;
+}
+
+.book-price {
+  @apply text-book-accent font-medium;
+}
+
+/* Additional custom styles for your virtual bookstore */
